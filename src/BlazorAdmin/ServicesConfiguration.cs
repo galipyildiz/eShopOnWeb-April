@@ -16,6 +16,8 @@ public static class ServicesConfiguration
         services.AddScoped<ICatalogItemService, CachedCatalogItemServiceDecorator>();
         services.AddScoped<CatalogItemService>();
 
+        services.AddScoped<IOrdersService, OrdersService>();
+
         return services;
     }
 }
