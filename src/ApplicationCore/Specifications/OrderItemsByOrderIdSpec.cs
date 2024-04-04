@@ -2,10 +2,10 @@
 using Microsoft.eShopWeb.ApplicationCore.Entities.OrderAggregate;
 
 namespace Microsoft.eShopWeb.ApplicationCore.Specifications;
-public class OrdersWithItemsSpecification : Specification<Order>
+public class OrderItemsByOrderIdSpec : Specification<OrderItem>
 {
-    public OrdersWithItemsSpecification()
+    public OrderItemsByOrderIdSpec(int orderId)
     {
-        Query.Include(o => o.OrderItems);
+        Query.Where(o => o.OrderId == orderId);
     }
 }
