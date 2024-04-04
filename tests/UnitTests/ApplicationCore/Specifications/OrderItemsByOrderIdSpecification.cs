@@ -8,7 +8,7 @@ public class OrderItemsByOrderId
     private static readonly int _orderId = 1;
 
     [Fact]
-    public void AllOrderItemsOrderIdExpectedOrderId()
+    public void AllOrderItemsOrderIdEqualExpectedOrderId()
     {
         var spec = new OrderItemsByOrderIdSpecification(_orderId);
 
@@ -28,10 +28,15 @@ public class OrderItemsByOrderId
         {
             OrderId = _orderId,
         };
+        var orderItem3 = new OrderItem(new CatalogItemOrdered(3, "testName3", "test3.png"), 24, 5)
+        {
+            OrderId = 99,
+        };
         return new List<OrderItem>()
         {
           orderItem,
-          orderItem2
+          orderItem2,
+          orderItem3
         };
     }
 }
