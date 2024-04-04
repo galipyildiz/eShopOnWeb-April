@@ -45,4 +45,8 @@ public class Order : BaseEntity, IAggregateRoot
         }
         return total;
     }
+    public void UpdateState(OrderStateEnum state)
+    {
+        OrderState = state;
+    }
 }
