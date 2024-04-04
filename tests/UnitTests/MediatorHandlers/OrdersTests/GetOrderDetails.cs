@@ -21,7 +21,7 @@ public class GetOrderDetails
         var address = new Address("", "", "", "", "");
         Order order = new Order("buyerId", address, new List<OrderItem> { item });
                 
-        _mockOrderRepository.FirstOrDefaultAsync(Arg.Any<OrderWithItemsByIdSpec>(), default)
+        _mockOrderRepository.FirstOrDefaultAsync(Arg.Any<OrderWithItemsByIdSpecification>(), default)
             .Returns(order);
     }
 

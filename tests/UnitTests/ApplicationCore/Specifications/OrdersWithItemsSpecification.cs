@@ -17,6 +17,7 @@ public class OrdersWithItems
 
         Assert.NotNull(orders);
         Assert.NotNull(firstOrder);
+        Assert.Equal(_buyerId, firstOrder.BuyerId);
         Assert.True(firstOrder.OrderItems.Count > 0);
     }
 
