@@ -37,7 +37,7 @@ public class OrderDetailGetByIdEndpoint : IEndpoint<IResult, GetByOrderIdOrderDe
     {
         var response = new GetByOrderIdOrderDetailResponse(request.CorrelationId());
 
-        var spec = new OrderItemsByOrderIdSpec(request.OrderId);
+        var spec = new OrderItemsByOrderIdSpecification(request.OrderId);
         var items = await repository.ListAsync(spec);
         if (items is null)
             return Results.NotFound();
