@@ -48,7 +48,7 @@ public class GetByIdWithItemsAsync
         _catalogContext.SaveChanges();
 
         //Act
-        var spec = new OrderWithItemsByIdSpec(secondOrderId);
+        var spec = new OrderWithItemsByIdSpecification(secondOrderId);
         var orderFromRepo = await _orderRepository.FirstOrDefaultAsync(spec);
 
         //Assert
