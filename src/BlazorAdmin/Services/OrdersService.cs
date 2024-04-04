@@ -14,8 +14,22 @@ public class OrdersService : IOrdersService
     }
     public async Task<List<Order>> GetOrdersAsync()
     {
-        var orderList = await _httpService.HttpGet<OrdersResponse>($"orders");
+        var response = await _httpService.HttpGet<OrdersResponse>($"orders");
 
-        return orderList.Orders;
+        return response.Orders;
+    }
+
+    public async Task<List<OrderDetail>> GetOrderDetailsAsync(int orderId)
+    {
+        var response = await _httpService.HttpGet<OrderDetailResponse>($"orders/{orderId}");
+
+        return response.OrderDeatils;
+    }
+
+    public async Task<Order> UpdateOrderState(UpdateOrderStateRequest request)
+    {
+        var response = await _httpService.HttpPut<UpdateOrderResponse>($"orders", request);
+
+        return response.Order;
     }
 }
